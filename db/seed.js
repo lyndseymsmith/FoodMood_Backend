@@ -1,4 +1,48 @@
+import client from "./client.js";
+import { createUser } from "./queries/users.js";
 
+await client.connect()
+await seed()
+await client.end()
+console.log("Database seeded")
+
+async function seed(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    await createUser("SadSkittles", "yumyum123")
+    await createUser("CrazyChocolate", "cocoalove")
+}
 
 
 
