@@ -6,6 +6,8 @@ Elevator Pitch: Ever wanted your food to match your mood? Now you can with FoodM
 
 Contract: https://docs.google.com/document/d/1p2YA3c-yMghuOzuREJy8hr-uABh0Lnpv-R57thmVHyY/edit?tab=t.0
 
+![Screenshot 2025-07-01 at 7 31 11 PM](https://github.com/user-attachments/assets/31b304ee-cd0b-4687-a553-638d1a828cbe)
+
 
 API Routes: /users router POST /users/register POST /users/login GET /users/me
 
