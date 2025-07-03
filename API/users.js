@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
     });
 
 
-router.get('/me', verifyToken, async (req, res) => {
+router.get('/account', verifyToken, async (req, res) => {
     const { id } = req.user;
 
     try{
@@ -60,7 +60,7 @@ router.get('/me', verifyToken, async (req, res) => {
 });
 
 
-router.post('/me/mood/track', verifyToken, async(req, res) => {
+router.post('/account/mood/track', verifyToken, async(req, res) => {
     const { mood_id } = req.body;
     const user_id = req.user.id;
 
@@ -74,7 +74,7 @@ router.post('/me/mood/track', verifyToken, async(req, res) => {
 });
 
 
-router.get('/me/mood/stats', verifyToken, async (req, res) => {
+router.get('/account/mood/stats', verifyToken, async (req, res) => {
     const userId = req.user.id;
 
     try{
