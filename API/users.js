@@ -1,7 +1,9 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-
+import { verifyToken } from '../Middleware/middleware.js';
+import { registerUser, findUsername, userSavedItems } from '../db/queries/users.js';
+import { saveUserMood, getMoodCounts } from '../db/queries/mood.js';
 
 const router = express.Router();
 const JWT_SECRET = 'FoodMood2025'
@@ -20,10 +22,10 @@ router.post('/register', async (req, res) => {
             res.status(500).json({error: 'Server error for registration'})
         }
     }
-})
+});
 
 
-router.post('/login', verifyToken, async (req, res) => {
+router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     try{
@@ -43,6 +45,43 @@ router.post('/login', verifyToken, async (req, res) => {
             console.log('Login error', error)
             res.status(500).json({error: 'Server error for login'})
         }
-    })
+    });
 
-export default router;
+
+router.get('/me', verifyToken, async (req, res) => {
+    const { id } = req.user;
+
+    try{
+        const savedItems = await userSavedItems(id)
+        res.status(200).json({saved: savedItems})
+    }catch(error){
+        res.status(500).json({error: 'Failed to fetch saved items'})
+    }
+});
+
+
+router.post('/me/mood/track', verifyToken, async(req, res) => {
+    const { mood_id } = req.body;
+    const user_id = req.user.id;
+
+    try{
+        await saveUserMood(user_id, mood_id)
+        res.status(201).json({message: 'Mood tracked'})
+    }catch(error){
+        console.error('Failed to track mood', error)
+        res.status(500).json({erro: 'Could not track mood'})
+    }
+});
+
+
+router.get('/me/mood/stats', verifyToken, async (req, res) => {
+    const userId = req.user.id;
+
+    try{
+        const stats = await getMoodCounts(userId)
+        res.status(200).json({data: stats})
+    }catch(error){
+        console.error('Failed to fetch mood:', error)
+        res.status(500).json({error: 'Could not get mood stats'})
+    }
+})
