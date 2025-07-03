@@ -10,15 +10,29 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/recipes', (req, res) => {
-  res.json(recipes);
+app.get('/recipes', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM recipes');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 
-app.get('/recipes/:mood', (req, res) => {
-  const mood = req.params.mood.toLowerCase();
-  const filtered = recipes.filter(r => r.mood.toLowerCase() === mood);
-  res.json(filtered);
+
+app.get('/recipes/:mood', async (req, res) => {
+  const { mood } = req.params;
+  try {
+    const result = await pool.query(
+      'SELECT * FROM recipes WHERE mood = $1',
+      [mood.toLowerCase()]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
+
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
