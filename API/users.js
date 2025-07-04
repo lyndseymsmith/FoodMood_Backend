@@ -61,28 +61,28 @@ router.get('/account', verifyToken, async (req, res) => {
 });
 
 
-router.post('/account/mood/track', verifyToken, async(req, res) => {
-    const { mood_id } = req.body;
-    const user_id = req.user.id;
+// router.post('/account/mood/track', verifyToken, async(req, res) => {
+//     const { mood_id } = req.body;
+//     const user_id = req.user.id;
 
-    try{
-        await saveUserMood(user_id, mood_id)
-        res.status(201).json({message: 'Mood tracked'})
-    }catch(error){
-        console.error('Failed to track mood', error)
-        res.status(500).json({erro: 'Could not track mood'})
-    }
-});
+//     try{
+//         await saveUserMood(user_id, mood_id)
+//         res.status(201).json({message: 'Mood tracked'})
+//     }catch(error){
+//         console.error('Failed to track mood', error)
+//         res.status(500).json({erro: 'Could not track mood'})
+//     }
+// });
 
 
-router.get('/account/mood/stats', verifyToken, async (req, res) => {
-    const userId = req.user.id;
+// router.get('/account/mood/stats', verifyToken, async (req, res) => {
+//     const userId = req.user.id;
 
-    try{
-        const stats = await getMoodCounts(userId)
-        res.status(200).json({data: stats})
-    }catch(error){
-        console.error('Failed to fetch mood:', error)
-        res.status(500).json({error: 'Could not get mood stats'})
-    }
-})
+//     try{
+//         const stats = await getMoodCounts(userId)
+//         res.status(200).json({data: stats})
+//     }catch(error){
+//         console.error('Failed to fetch mood:', error)
+//         res.status(500).json({error: 'Could not get mood stats'})
+//     }
+// })
