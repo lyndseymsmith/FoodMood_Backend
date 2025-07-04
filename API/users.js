@@ -2,8 +2,9 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { verifyToken } from '../Middleware/middleware.js';
-import { registerUser, findUsername, userSavedItems } from '../db/queries/users.js';
+import { createUser, findUsername, getSavedByUserId } from '../db/queries/users.js';
 import { saveUserMood, getMoodCounts } from '../db/queries/mood.js';
+import { getSavedByUserId } from '../db/queries/saved.js';
 
 const router = express.Router();
 const JWT_SECRET = 'FoodMood2025'
@@ -13,7 +14,7 @@ router.post('/register', async (req, res) => {
 
     try{
         const hashed = await bcrypt.hash(password, 10);
-        const user = await registerUser(username, hashed);
+        const user = await createUser(username, hashed);
         res.status(201).json({message: 'User registered', user})
     }catch(error){
         if(error.code === '23505'){
@@ -52,7 +53,7 @@ router.get('/account', verifyToken, async (req, res) => {
     const { id } = req.user;
 
     try{
-        const savedItems = await userSavedItems(id)
+        const savedItems = await getSavedByUserId(id)
         res.status(200).json({saved: savedItems})
     }catch(error){
         res.status(500).json({error: 'Failed to fetch saved items'})
