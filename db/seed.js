@@ -9,10 +9,10 @@ console.log("✅ Database seeded successfully!");
 
 async function seed() {
 
-  await createMoods("happy", "delighted, pleased, joyful, cheerful");
-  await createMoods("sad", "depressed, upset, melancholy, sorrowful");
-  await createMoods("angry", "furious, irritable, mad, enraged");
-  await createMoods("romantic", "enchanting, alluring, marvellous, glamourous, magical");
+  await getMoods("happy", "delighted, pleased, joyful, cheerful");
+  await getMoods("sad", "depressed, upset, melancholy, sorrowful");
+  await getMoods("angry", "furious, irritable, mad, enraged");
+  await getMoods("romantic", "enchanting, alluring, marvellous, glamourous, magical");
 
   
   await createUser("SadSkittles", "yumyum123");
