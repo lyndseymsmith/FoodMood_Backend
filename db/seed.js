@@ -8,7 +8,7 @@ await client.end();
 console.log("✅ Database seeded successfully!");
 
 async function seed() {
- 
+
   await createMoods("happy", "delighted, pleased, joyful, cheerful");
   await createMoods("sad", "depressed, upset, melancholy, sorrowful");
   await createMoods("angry", "furious, irritable, mad, enraged");
