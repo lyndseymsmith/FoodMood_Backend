@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "db:schema": "psql -d foodmood -f schema.sql",
+    "db:seed": "node --env-file=.env db/seed.js",
+    "db:reset": "npm run db:schema && npm run db:seed"
   },
   "keywords": ["food", "mood", "recipes", "express", "postgres"],
   "author": "Your Name",
