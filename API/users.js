@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { verifyToken } from '../Middleware/middleware.js';
 import { createUser, findUsername } from '../db/queries/users.js';
 import { saveUserMood, getMoodCounts } from '../db/queries/mood.js';
-import { getSavedByUserId } from '../db/queries/saved.js';
+import { getSavedByUserId } from '../db/queries/userHistory.js';
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'FoodMood2025';
