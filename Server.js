@@ -34,5 +34,9 @@ app.get('/recipes/:mood', async (req, res) => {
   }
 });
 
+// import app from './app.js
+//import client from './db/client.js
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+//cont PORT = process.env.PORT ?? 3000;
+//await client.connect()
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
