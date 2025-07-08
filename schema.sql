@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS recipes CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS moods CASCADE;
 
-
 CREATE TABLE moods (
   id SERIAL PRIMARY KEY,
   emotion TEXT NOT NULL,
@@ -24,7 +23,6 @@ CREATE TABLE recipes (
   ingredients TEXT[] NOT NULL,
   instructions TEXT
 );
-
 
 CREATE TABLE user_history(
   id SERIAL PRIMARY KEY,
