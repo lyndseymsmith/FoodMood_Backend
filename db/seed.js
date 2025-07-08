@@ -190,21 +190,21 @@ async function seed() {
     },
   ];
 
-  for (const recipe of recipes) {
-    await client.query(
-      `
-      INSERT INTO recipes (title, mood, description, ingredients, instructions)
-      VALUES ($1, $2, $3, $4, $5)
-      `,
-      [
-        recipe.title,
-        recipe.mood,
-        recipe.description,
-        recipe.ingredients,
-        recipe.instructions,
-      ]
-    );
-  }
+//   for (const recipe of recipes) {
+//     await client.query(
+//       `
+//       INSERT INTO recipes (title, mood, description, ingredients, instructions)
+//       VALUES ($1, $2, $3, $4, $5)
+//       `,
+//       [
+//         recipe.title,
+//         recipe.mood,
+//         recipe.description,
+//         recipe.ingredients,
+//         recipe.instructions,
+//       ]
+//     );
+//   }
 }
 
 
