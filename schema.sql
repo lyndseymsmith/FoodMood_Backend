@@ -1,12 +1,13 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS moods;
 DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS saved_moods;
 
 
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
-  mood TEXT NOT NULL,
+  mood_id INTEGER REFERENCES moods(id),
   description TEXT,
   ingredients TEXT[] NOT NULL,
   instructions TEXT
@@ -25,5 +26,13 @@ CREATE TABLE users (
   username TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL
 );
+
+
+CREATE TABLE saved_moods (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  mood_id INTEGER REFERENCES moods(id) ON DELETE CASCADE,
+  clicked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
 
 
