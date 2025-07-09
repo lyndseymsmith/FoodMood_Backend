@@ -1,6 +1,7 @@
 import { getMoods } from "./queries/mood.js";
 import client from "./client.js";
 import { createUser } from "./queries/users.js";
+import { getPlaylists } from "./queries/playlists.js";
 
 await client.connect();
 await seed();
@@ -17,6 +18,11 @@ async function seed() {
   
   await createUser("SadSkittles", "yumyum123");
   await createUser("CrazyChocolate", "cocoalove");
+
+  await getPlaylists(happy.id, 'https://on.soundcloud.com/dG6apEx3q5KgCHvlXF');
+  await getPlaylists(sad.id, 'https://on.soundcloud.com/luYt8S5GdwIEIRMhU1');
+  await getPlaylists(angry.id, 'https://soundcloud.com/josh-klpa/sets/angry-angry-metal-metal-rock');
+  await getPlaylists(romantic.id, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
 
   
   const recipes = [
