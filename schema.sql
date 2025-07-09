@@ -18,18 +18,24 @@ CREATE TABLE users (
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
-  mood_id INTEGER REFERENCES moods(id),
+  mood_id INTEGER REFERENCES moods(id) ON DELETE SET NULL,
   description TEXT,
   ingredients TEXT[] NOT NULL,
   instructions TEXT
 );
 
-CREATE TABLE user_history(
+CREATE TABLE user_history (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   mood_id INTEGER REFERENCES moods(id) ON DELETE CASCADE,
   action_type TEXT NOT NULL,
   action_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE playlists (
+  id SERIAL PRIMARY KEY,
+  mood_id INTEGER REFERENCES moods(id) ON DELETE CASCADE,
+  url TEXT NOT NULL
 );
 
 
