@@ -2,7 +2,7 @@ import { createMoods } from "./queries/mood.js";
 import client from "./client.js";
 import { createUser } from "./queries/users.js";
 import { createPlaylists } from "./queries/playlists.js";
-import { createRecipes} from "./recipes.js";
+import { createRecipes} from "./queries/recipes.js";
 
 await client.connect();
 await seed();
