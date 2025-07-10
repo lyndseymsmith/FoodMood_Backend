@@ -1,4 +1,3 @@
-import e from "express";
 import client from "../client.js";
 
 export async function createMoods(emotion, description) {
