@@ -5,6 +5,7 @@ import { createUser } from "./queries/users.js";
 import { createPlaylists } from "./queries/playlists.js";
 import { getAllRecipes } from "./queries/recipes.js";
 
+
 await client.connect();
 await seed();
 await client.end();
