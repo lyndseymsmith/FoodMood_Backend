@@ -1,8 +1,9 @@
+console.log("module type:", import.meta.url);
 import { createMoods } from "./queries/mood.js";
 import client from "./client.js";
 import { createUser } from "./queries/users.js";
 import { createPlaylists } from "./queries/playlists.js";
-import { createRecipes} from "./recipes.js";
+import { getAllRecipes } from "./queries/recipes.js";
 
 await client.connect();
 await seed();
@@ -25,14 +26,14 @@ async function seed() {
   await createPlaylists(4, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
 
   
-  await createRecipes(
+  await getAllRecipes(
       "Happy Pancakes",
       1,
       "Fluffy pancakes with syrup to brighten your day!",
       ["Flour", "Eggs", "Milk", "Sugar"],
       "Mix all and fry in pan.");
 
-    await createRecipes(
+    await getAllRecipes(
       "Comfort Mac & Cheese",
      2,
        "Warm mac & cheese to soothe your soul.",
@@ -40,7 +41,7 @@ async function seed() {
       "Boil pasta, add cheese and milk, stir."  
     );
 
-     await createRecipes(
+     await getAllRecipes(
       "Spicy Anger Tacos",
       3,
       "Let out the fire with these spicy tacos.",
@@ -48,7 +49,7 @@ async function seed() {
       "Cook chicken, assemble in tortilla, add hot sauce." 
      );
 
-     await createRecipes(
+     await getAllRecipes(
     "Romantic Chocolate Fondue",
     4,
     "Perfect for a romantic night.",
@@ -56,7 +57,7 @@ async function seed() {
     "Melt chocolate, dip fruits." 
      );
 
-    await createRecipes(
+    await getAllRecipes(
      "Sunshine Smoothie",
       1,
       "A tropical blend to energize your morning.",
@@ -64,7 +65,7 @@ async function seed() {
       "Blend all ingredients until smooth."   
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Joyful Fruit Salad",
     1,
     "A colorful mix of your favorite fruits.",
@@ -72,7 +73,7 @@ async function seed() {
     "Chop and mix fruits, drizzle with honey."
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Cheesy Omelet Delight",
     1,
     "Light and cheesy, great start to a happy day.",
@@ -80,7 +81,7 @@ async function seed() {
     "Beat eggs, pour into pan, add cheese and veggies."
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Rainbow Veggie Wraps",
     1,
     "Crunchy veggies in a colorful wrap.",
@@ -88,7 +89,7 @@ async function seed() {
     "Spread hummus, fill with veggies, and roll up."  
     )
       
-    await createRecipes(
+    await getAllRecipes(
     "Lemon Zest Muffins",
     1,
     "Light, fluffy muffins with a citrus zing!",
@@ -96,7 +97,7 @@ async function seed() {
     "Mix, pour into muffin tins, and bake."   
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Cozy Chicken Soup",
     2,
     "Classic warm soup to hug you from the inside.",
@@ -104,7 +105,7 @@ async function seed() {
     "Boil ingredients and simmer until soft."   
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Sad Day Sundae",
     2,
     "Ice cream, chocolate, and comfort in a bowl.",
@@ -112,7 +113,7 @@ async function seed() {
     "Scoop ice cream, drizzle syrup, top with cream."  
     );
     
-    await createRecipes(
+    await getAllRecipes(
     "Peanut Butter Toasties",
     2,
     "A simple favorite when you need something fast.",
@@ -120,7 +121,7 @@ async function seed() {
     "Toast bread, spread PB, top with banana."   
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Melty Grilled Cheese",
     2,
     "Golden crispy bread with melted cheese inside.",
@@ -128,7 +129,7 @@ async function seed() {
     "Butter bread, grill with cheese inside."    
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Cinnamon Oat Bowl",
     2,
     "Warm, soft oats with a cozy touch of cinnamon.",
@@ -136,7 +137,7 @@ async function seed() {
     "Cook oats in milk, stir in cinnamon and honey."   
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Chili Inferno",
     3,
     "A bold, spicy chili to match your mood.",
@@ -144,7 +145,7 @@ async function seed() {
     "Cook beef, add ingredients, simmer for 30 minutes."    
     );
      
-    await createRecipes(
+    await getAllRecipes(
     "Firecracker Wings",
     3,
     "Hot wings with an explosive kick!",
@@ -152,7 +153,7 @@ async function seed() {
     "Bake wings, toss in spicy garlic sauce."   
     );
       
-    await createRecipes(
+    await getAllRecipes(
     "Sriracha Noodles",
     3,
     "Noodles tossed in a fiery Sriracha glaze.",
@@ -161,7 +162,7 @@ async function seed() {
     );
       
     
-    await createRecipes(
+    await getAllRecipes(
     "Volcano Burger",
     3,
     "A loaded burger with spicy jalapeños and sauce.",
@@ -170,7 +171,7 @@ async function seed() {
     );
       
     
-    await createRecipes(
+    await getAllRecipes(
     "Spicy Stir-Fry Blast",
     3,
     "Stir-fried veggies and meat in a fiery blend.",
@@ -179,7 +180,7 @@ async function seed() {
     );
 
 
-    await createRecipes(
+    await getAllRecipes(
     "Heart-Shaped Pizzas",
     4,
     "Mini pizzas made with love.",
@@ -188,7 +189,7 @@ async function seed() {
     );
       
    
-    await createRecipes(
+    await getAllRecipes(
     "Creamy Garlic Pasta",
     4,
     "Smooth and elegant dinner for two.",
@@ -196,7 +197,7 @@ async function seed() {
     "Cook pasta, stir into garlic cream sauce."   
     );
    
-    await createRecipes(
+    await getAllRecipes(
     "Strawberry Cheesecake Bites",
     4,
     "Sweet little bites perfect for sharing.",
@@ -204,7 +205,7 @@ async function seed() {
     "Mix cream cheese, spoon onto cracker, top with fruit."   
     );
     
-    await createRecipes(
+    await getAllRecipes(
     "Sparkling Mocktail",
     4,
     "Fancy fizzy drink to toast love.",
@@ -212,7 +213,7 @@ async function seed() {
     "Mix all in a glass and serve chilled."   
     );
     
-    await createRecipes(
+    await getAllRecipes(
      "Lover’s Chocolate Cake",
      4,
       "Rich, moist cake to share with someone special.",

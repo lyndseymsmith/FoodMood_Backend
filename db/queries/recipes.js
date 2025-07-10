@@ -7,8 +7,8 @@ export async function getAllRecipes() {
 };
 
 
-export async function getRecipesByMood(mood) {
-  const result = await client.query('SELECT * FROM recipes WHERE mood = $1', [mood]);
+export async function getRecipesByMood(emotion) {
+  const result = await client.query('SELECT * FROM recipes WHERE emotion = $1', [emotion]);
   return result.rows;
 };
 
