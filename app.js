@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use('/api/users', usersRouter);
 app.use("/mood", moodRouter);
+app.use("/recipes", recipesRouter)
 
 
 app.use((err, req, res, next) => {
