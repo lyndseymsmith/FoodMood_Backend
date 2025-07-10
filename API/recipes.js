@@ -199,19 +199,19 @@
 //     instructions: 'Mix and bake, frost with love.'
 //   }
 // ];
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
-const recipes = require('./recipes');
-
-app.use(cors());
-app.use(express.json());
+import express from 'express';
 
 
-app.get('/recipes', async (req, res) => {
+const router = express.Router();
+import cors from 'cors';
+
+// app.use(cors());
+// app.use(express.json());
+
+export default router;
+router.get('/recipes', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM recipes');
+    const result = await client.query('SELECT * FROM recipes');
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -220,10 +220,10 @@ app.get('/recipes', async (req, res) => {
 
 
 
-app.get('/recipes/:mood', async (req, res) => {
+router.get('/recipes/:mood', async (req, res) => {
   const { mood } = req.params;
   try {
-    const result = await pool.query(
+    const result = await client.query(
       'SELECT * FROM recipes WHERE mood = $1',
       [mood.toLowerCase()]
     );

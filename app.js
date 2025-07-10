@@ -1,6 +1,7 @@
 import express from 'express';
 import usersRouter from './API/users.js';
 import moodRouter from "./API/mood.js";
+import recipesRouter from "./API/recipes.js";
 const app = express();
 
 
