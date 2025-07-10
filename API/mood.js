@@ -2,9 +2,9 @@ import express from "express";
 const router = express.Router();
 export default router;
 
-import { createMoods } from "../db/queries/mood";
+import { getMoods } from "../db/queries/mood";
 
 router.route("/").get(async (req, res) => {
-    const moods = await createMoods();
+    const moods = await getMoods();
     res.send(moods);
 });

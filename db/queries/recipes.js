@@ -1,9 +1,9 @@
-
+import client from "../client.js";
 
 // const pool = require('./db'); 
 
 
-const getAllRecipes = async () => {
+const createRecipes = async () => {
   const result = await client.query('SELECT * FROM recipes');
   return result.rows;
 };
