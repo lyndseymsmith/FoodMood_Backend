@@ -1,4 +1,4 @@
-import { createMoodsMoods } from "./queries/mood.js";
+import { createMoods } from "./queries/mood.js";
 import client from "./client.js";
 import { createUser } from "./queries/users.js";
 import { getPlaylists } from "./queries/playlists.js";
