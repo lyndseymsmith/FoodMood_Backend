@@ -3,7 +3,7 @@ import client from "../client.js";
 // const pool = require('./db'); 
 
 
-const createRecipes = async () => {
+const getAllRecipes = async () => {
   const result = await client.query('SELECT * FROM recipes');
   return result.rows;
 };

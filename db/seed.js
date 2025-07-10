@@ -27,14 +27,14 @@ async function seed() {
   
   await createRecipes(
       "Happy Pancakes",
-      "happy",
+      1,
       "Fluffy pancakes with syrup to brighten your day!",
       ["Flour", "Eggs", "Milk", "Sugar"],
       "Mix all and fry in pan.");
 
     await createRecipes(
       "Comfort Mac & Cheese",
-     "sad",
+     2,
        "Warm mac & cheese to soothe your soul.",
       ["Pasta", "Cheese", "Milk"],
       "Boil pasta, add cheese and milk, stir."  
@@ -42,7 +42,7 @@ async function seed() {
 
      await createRecipes(
       "Spicy Anger Tacos",
-      "anger",
+      3,
       "Let out the fire with these spicy tacos.",
       ["Tortillas", "Hot sauce", "Chicken"],
       "Cook chicken, assemble in tortilla, add hot sauce." 
@@ -50,7 +50,7 @@ async function seed() {
 
      await createRecipes(
     "Romantic Chocolate Fondue",
-    "romantic",
+    4,
     "Perfect for a romantic night.",
     ["Chocolate", "Strawberries"],
     "Melt chocolate, dip fruits." 
@@ -58,7 +58,7 @@ async function seed() {
 
     await createRecipes(
      "Sunshine Smoothie",
-      "happy",
+      1,
       "A tropical blend to energize your morning.",
       ["Banana", "Pineapple", "Orange juice", "Yogurt"],
       "Blend all ingredients until smooth."   
@@ -66,7 +66,7 @@ async function seed() {
       
     await createRecipes(
     "Joyful Fruit Salad",
-    "happy",
+    1,
     "A colorful mix of your favorite fruits.",
     ["Strawberries", "Blueberries", "Kiwi", "Honey"],
     "Chop and mix fruits, drizzle with honey."
@@ -74,7 +74,7 @@ async function seed() {
       
     await createRecipes(
     "Cheesy Omelet Delight",
-    "happy",
+    1,
     "Light and cheesy, great start to a happy day.",
     ["Eggs", "Cheese", "Peppers", "Salt"],
     "Beat eggs, pour into pan, add cheese and veggies."
@@ -82,7 +82,7 @@ async function seed() {
       
     await createRecipes(
     "Rainbow Veggie Wraps",
-    "happy",
+    1,
     "Crunchy veggies in a colorful wrap.",
     ["Tortilla", "Lettuce", "Carrots", "Hummus"],
     "Spread hummus, fill with veggies, and roll up."  
@@ -90,7 +90,7 @@ async function seed() {
       
     await createRecipes(
     "Lemon Zest Muffins",
-    "happy",
+    1,
     "Light, fluffy muffins with a citrus zing!",
     ["Flour", "Eggs", "Lemon zest", "Sugar"],
     "Mix, pour into muffin tins, and bake."   
@@ -98,7 +98,7 @@ async function seed() {
       
     await createRecipes(
     "Cozy Chicken Soup",
-    "sad",
+    2,
     "Classic warm soup to hug you from the inside.",
     ["Chicken", "Carrots", "Celery", "Broth"],
     "Boil ingredients and simmer until soft."   
@@ -106,7 +106,7 @@ async function seed() {
       
     await createRecipes(
     "Sad Day Sundae",
-    "sad",
+    2,
     "Ice cream, chocolate, and comfort in a bowl.",
     ["Ice cream", "Chocolate syrup", "Whipped cream"],
     "Scoop ice cream, drizzle syrup, top with cream."  
@@ -114,7 +114,7 @@ async function seed() {
     
     await createRecipes(
     "Peanut Butter Toasties",
-    "sad",
+    2,
     "A simple favorite when you need something fast.",
     ["Bread", "Peanut butter", "Banana slices"],
     "Toast bread, spread PB, top with banana."   
@@ -122,7 +122,7 @@ async function seed() {
       
     await createRecipes(
     "Melty Grilled Cheese",
-    "sad",
+    2,
     "Golden crispy bread with melted cheese inside.",
     ["Bread", "Cheese", "Butter"],
     "Butter bread, grill with cheese inside."    
@@ -130,7 +130,7 @@ async function seed() {
       
     await createRecipes(
     "Cinnamon Oat Bowl",
-    "sad",
+    2,
     "Warm, soft oats with a cozy touch of cinnamon.",
     ["Oats", "Milk", "Cinnamon", "Honey"],
     "Cook oats in milk, stir in cinnamon and honey."   
@@ -138,7 +138,7 @@ async function seed() {
       
     await createRecipes(
     "Chili Inferno",
-    "anger",
+    3,
     "A bold, spicy chili to match your mood.",
     ["Ground beef", "Beans", "Chili powder", "Tomato"],
     "Cook beef, add ingredients, simmer for 30 minutes."    
@@ -146,7 +146,7 @@ async function seed() {
      
     await createRecipes(
     "Firecracker Wings",
-    "anger",
+    3,
     "Hot wings with an explosive kick!",
     ["Chicken wings", "Hot sauce", "Butter", "Garlic"],
     "Bake wings, toss in spicy garlic sauce."   
@@ -154,7 +154,7 @@ async function seed() {
       
     await createRecipes(
     "Sriracha Noodles",
-    "anger",
+    3,
     "Noodles tossed in a fiery Sriracha glaze.",
     ["Noodles", "Sriracha", "Soy sauce", "Sesame oil"],
     "Cook noodles, stir-fry with sauces."
@@ -163,7 +163,7 @@ async function seed() {
     
     await createRecipes(
     "Volcano Burger",
-    "anger",
+    3,
     "A loaded burger with spicy jalapeños and sauce.",
     ["Beef patty", "Bun", "Jalapeños", "Hot sauce"],
     "Grill patty, assemble with toppings."
@@ -172,7 +172,7 @@ async function seed() {
     
     await createRecipes(
     "Spicy Stir-Fry Blast",
-    "anger",
+    3,
     "Stir-fried veggies and meat in a fiery blend.",
     ["Bell peppers", "Onion", "Chicken", "Chili flakes"],
      "Stir-fry all ingredients on high heat."    
@@ -181,7 +181,7 @@ async function seed() {
 
     await createRecipes(
     "Heart-Shaped Pizzas",
-    "romantic",
+    4,
     "Mini pizzas made with love.",
     ["Pizza dough", "Tomato sauce", "Cheese", "Pepperoni"],
     "Shape dough, add toppings, bake until golden."
@@ -190,7 +190,7 @@ async function seed() {
    
     await createRecipes(
     "Creamy Garlic Pasta",
-    "romantic",
+    4,
     "Smooth and elegant dinner for two.",
     ["Pasta", "Cream", "Garlic", "Parmesan"],
     "Cook pasta, stir into garlic cream sauce."   
@@ -198,7 +198,7 @@ async function seed() {
    
     await createRecipes(
     "Strawberry Cheesecake Bites",
-    "romantic",
+    4,
     "Sweet little bites perfect for sharing.",
     ["Cream cheese", "Strawberries", "Graham crackers"],
     "Mix cream cheese, spoon onto cracker, top with fruit."   
@@ -206,7 +206,7 @@ async function seed() {
     
     await createRecipes(
     "Sparkling Mocktail",
-    "romantic",
+    4,
     "Fancy fizzy drink to toast love.",
     ["Sparkling water", "Lime", "Mint", "Cranberry juice"],
     "Mix all in a glass and serve chilled."   
@@ -214,7 +214,7 @@ async function seed() {
     
     await createRecipes(
      "Lover’s Chocolate Cake",
-      "romantic",
+     4,
       "Rich, moist cake to share with someone special.",
      ["Cocoa", "Flour", "Sugar", "Eggs"],
       "Mix and bake, frost with love."   
