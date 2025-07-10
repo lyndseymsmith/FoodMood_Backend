@@ -19,10 +19,10 @@ async function seed() {
   await createUser("SadSkittles", "yumyum123");
   await createUser("CrazyChocolate", "cocoalove");
 
-  await createPlaylists(happy.id, 'https://on.soundcloud.com/dG6apEx3q5KgCHvlXF');
-  await createPlaylists(sad.id, 'https://on.soundcloud.com/luYt8S5GdwIEIRMhU1');
-  await createPlaylists(angry.id, 'https://soundcloud.com/josh-klpa/sets/angry-angry-metal-metal-rock');
-  await createPlaylists(romantic.id, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
+  await createPlaylists(1, 'https://on.soundcloud.com/dG6apEx3q5KgCHvlXF');
+  await createPlaylists(2, 'https://on.soundcloud.com/luYt8S5GdwIEIRMhU1');
+  await createPlaylists(3, 'https://soundcloud.com/josh-klpa/sets/angry-angry-metal-metal-rock');
+  await createPlaylists(4, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
 
   
   await createRecipes(
