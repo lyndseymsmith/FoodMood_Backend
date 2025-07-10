@@ -1,4 +1,3 @@
-console.log("module type:", import.meta.url);
 import { createMoods } from "./queries/mood.js";
 import client from "./client.js";
 import { createUser } from "./queries/users.js";
@@ -13,18 +12,18 @@ console.log("✅ Database seeded successfully!");
 
 async function seed() {
 
-  await createMoods("happy", "delighted, pleased, joyful, cheerful");
-  await createMoods("sad", "depressed, upset, melancholy, sorrowful");
-  await createMoods("angry", "furious, irritable, mad, enraged");
-  await createMoods("romantic", "enchanting, alluring, marvellous, glamourous, magical");
+  const happy = await createMoods("happy", "delighted, pleased, joyful, cheerful");
+  const sad = await createMoods("sad", "depressed, upset, melancholy, sorrowful");
+  const angry = await createMoods("angry", "furious, irritable, mad, enraged");
+  const romantic = await createMoods("romantic", "enchanting, alluring, marvellous, glamourous, magical");
 
   await createUser("SadSkittles", "yumyum123");
   await createUser("CrazyChocolate", "cocoalove");
 
-  await createPlaylists(1, 'https://on.soundcloud.com/dG6apEx3q5KgCHvlXF');
-  await createPlaylists(2, 'https://on.soundcloud.com/luYt8S5GdwIEIRMhU1');
-  await createPlaylists(3, 'https://soundcloud.com/josh-klpa/sets/angry-angry-metal-metal-rock');
-  await createPlaylists(4, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
+  await createPlaylists(happy.id, 'https://on.soundcloud.com/dG6apEx3q5KgCHvlXF');
+  await createPlaylists(sad.id, 'https://on.soundcloud.com/luYt8S5GdwIEIRMhU1');
+  await createPlaylists(angry.id, 'https://soundcloud.com/josh-klpa/sets/angry-angry-metal-metal-rock');
+  await createPlaylists(romantic.id, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
 
   
   await getAllRecipes(
