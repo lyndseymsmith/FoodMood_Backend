@@ -203,7 +203,7 @@ import express from 'express';
 
 
 const router = express.Router();
-import cors from 'cors';
+// import cors from 'cors';
 
 // app.use(cors());
 // app.use(express.json());
