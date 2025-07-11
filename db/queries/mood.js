@@ -8,6 +8,13 @@ export async function createMoods(emotion, description) {
   return result.rows[0];
 }
 
+export async function getMoods(){
+    const result = await client.query(
+        `SELECT * FROM moods;`
+    )
+    return result.rows
+}
+
 export async function saveUserMood(user_id, mood_id){
     const result = await client.query(
         `INSERT INTO user_history (user_id, mood_id) VALUES ($1, $2);`,
