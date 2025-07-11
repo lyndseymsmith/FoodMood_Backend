@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "node --env-file=.env server.js",
     "dev": "nodemon server.js",
     "db:schema": "psql -d foodmood -f schema.sql",
     "db:seed": "node --env-file=.env db/seed.js",
