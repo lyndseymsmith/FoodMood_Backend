@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { authenticateToken } from '../Middleware/middleware.js';
 import { createUser, findUsername } from '../db/queries/users.js';
-// import { saveUserMood, getMoodCounts } from '../db/queries/mood.js';
-// import { getSavedByUserId } from '../db/queries/userHistory.js';
+import { saveUserMood, getMoodCounts } from '../db/queries/mood.js';
+import { getSavedByUserId } from '../db/queries/userHistory.js';
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'FoodMood2025';
@@ -28,6 +28,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log('Login atempt for:', username)
 
     try{
         const user = await findUsername(username)
@@ -40,7 +41,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({error: 'Wrong information'})
         }
         
-        const token = jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET) 
+        const token = jwt.sign({id: user.id, username: user.username}, JWT_SECRET) 
             res.status(200).json({token})
         }catch(error){
             console.log('Login error', error)
@@ -70,7 +71,7 @@ router.post('/account/mood/track', authenticateToken, async(req, res) => {
         res.status(201).json({message: 'Mood tracked'})
     }catch(error){
         console.error('Failed to track mood', error)
-        res.status(500).json({erro: 'Could not track mood'})
+        res.status(500).json({error: 'Could not track mood'})
     }
 });
 
