@@ -25,7 +25,7 @@ export async function saveUserMood(user_id, mood_id){
 
 export async function getMoodCounts(user_id){
     const result = await client.query(
-        `SELECT moods.emotion, COUNT(*) AS count FROM saved JOIN mood ON user_history.mood_id = mood.id WHERE user_history.user_id = $1 GROUP BY moods.emotion`,
+        `SELECT moods.emotion, COUNT(*) AS count FROM user_history JOIN moods ON user_history.mood_id = moods.id WHERE user_history.user_id = $1 GROUP BY moods.emotion`,
         [user_id]
     )
     return result.rows
