@@ -2,11 +2,12 @@ import jwt from 'jsonwebtoken';
 
 export function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
-    
-    const token = authHeader.split(' ')[1];
+
     if (!authHeader) {
         return res.status(401).json({ error: 'Token required' });
     }
+
+    const token = authHeader.split(' ')[1];
 
     try {
         const decodedJWT = jwt.verify(token, process.env.JWT_SECRET || 'FoodMood2025');
