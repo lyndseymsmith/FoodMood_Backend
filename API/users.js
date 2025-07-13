@@ -80,6 +80,7 @@ router.get('/account/mood/stats', authenticateToken, async (req, res) => {
     const userId = req.user.id;
 
     try{
+        console.log('User token', req.user)
         const stats = await getMoodCounts(userId)
         res.status(200).json({data: stats})
     }catch(error){
