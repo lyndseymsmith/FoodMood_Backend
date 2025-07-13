@@ -220,9 +220,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await client.query(`SELECT recipes.*, moods.emotion, playlists.url AS playlist_url FROM recipes JOIN moods ON recipes.mood_id = moods.id JOIN playlists ON playlists.mood_id = moods.id WHERE recipes.id = $1`, [id]);
+      
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ error: err.message });
+  }
+})
 
-
-router.get('/:mood', async (req, res) => {
+router.get('/mood/:mood', async (req, res) => {
   const { mood } = req.params;
   try {
     const result = await client.query(
@@ -238,3 +248,4 @@ router.get('/:mood', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+

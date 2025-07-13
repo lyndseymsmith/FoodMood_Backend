@@ -20,8 +20,8 @@ async function seed() {
   await createUser("SadSkittles", "yumyum123");
   await createUser("CrazyChocolate", "cocoalove");
 
-  await createPlaylists(happy.id, 'https://on.soundcloud.com/dG6apEx3q5KgCHvlXF');
-  await createPlaylists(sad.id, 'https://on.soundcloud.com/luYt8S5GdwIEIRMhU1');
+  await createPlaylists(happy.id, 'https://soundcloud.com/alexrainbirdmusic/sets/good-vibes-vol-2?si=412f6775625e477ea17b3174c0dc60d4&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing');
+  await createPlaylists(sad.id, 'https://soundcloud.com/liavcooney/sets/sad-songs-that-will-make-you?si=a3600e05bb16455498042d96eac7f7aa&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing');
   await createPlaylists(angry.id, 'https://soundcloud.com/josh-klpa/sets/angry-angry-metal-metal-rock');
   await createPlaylists(romantic.id, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
 
