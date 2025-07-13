@@ -26,14 +26,14 @@ async function seed() {
   await createPlaylists(romantic.id, 'https://soundcloud.com/andrea-torrisi-213265059/sets/love-songs-2023-english-love');
 
   
-  await getAllRecipes(
+  await createRecipes(
       "Happy Pancakes",
       1,
       "Fluffy pancakes with syrup to brighten your day!",
       ["Flour", "Eggs", "Milk", "Sugar"],
       "Mix all and fry in pan.");
 
-    await getAllRecipes(
+    await createRecipes(
       "Comfort Mac & Cheese",
      2,
        "Warm mac & cheese to soothe your soul.",
