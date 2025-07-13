@@ -203,32 +203,38 @@ import express from 'express';
 
 
 const router = express.Router();
+import client from '../db/client.js';
 // import cors from 'cors';
 
 // app.use(cors());
 // app.use(express.json());
 
 export default router;
-router.get('/recipes', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM recipes');
     res.json(result.rows);
   } catch (err) {
+    console.error(err)
     res.status(500).json({ error: err.message });
   }
 });
 
 
 
-router.get('/recipes/:mood', async (req, res) => {
+router.get('/:mood', async (req, res) => {
   const { mood } = req.params;
   try {
     const result = await client.query(
-      'SELECT * FROM recipes WHERE mood = $1',
+      `SELECT recipes.* 
+      FROM recipes 
+      JOIN moods ON recipes.mood_id = moods.id 
+      WHERE LOWER(moods.emotion) = $1;`,
       [mood.toLowerCase()]
     );
     res.json(result.rows);
   } catch (err) {
+    console.log(err)
     res.status(500).json({ error: err.message });
   }
 });
