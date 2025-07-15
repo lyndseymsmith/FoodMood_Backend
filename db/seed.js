@@ -220,24 +220,7 @@ async function seed() {
      ["Cocoa", "Flour", "Sugar", "Eggs"],
       "Mix and bake, frost with love."   
     );
-      
-   
 
-//   for (const recipe of recipes) {
-//     await client.query(
-//       `
-//       INSERT INTO recipes (title, mood, description, ingredients, instructions)
-//       VALUES ($1, $2, $3, $4, $5)
-//       `,
-//       [
-//         recipe.title,
-//         recipe.mood,
-//         recipe.description,
-//         recipe.ingredients,
-//         recipe.instructions,
-//       ]
-//     );
-//   }
 }
 
 
