@@ -1,4 +1,4 @@
-// const pool = require('./db'); 
+
 import client from '../client.js';
 
 export async function createRecipes(title, mood_id, description, ingredients, instructions) {
@@ -33,10 +33,3 @@ export async function getRecipeById(id) {
 };
 
 
-
-// module.exports = {
-//   getAllRecipes,
-//   getRecipesByMood,
-//   getRecipeById,
-  
-// };
