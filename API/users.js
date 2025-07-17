@@ -28,7 +28,6 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    console.log('Login atempt for:', username)
 
     try{
         const user = await findUsername(username)
@@ -44,7 +43,6 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({id: user.id, username: user.username}, JWT_SECRET) 
             res.status(200).json({token})
         }catch(error){
-            console.log('Login error', error)
             res.status(500).json({error: 'Server error for login'})
         }
     });
@@ -70,21 +68,18 @@ router.post('/account/mood/track', authenticateToken, async(req, res) => {
         await saveUserMood(user_id, mood_id)
         res.status(201).json({message: 'Mood tracked'})
     }catch(error){
-        console.error('Failed to track mood', error)
         res.status(500).json({error: 'Could not track mood'})
     }
 });
 
 
 router.get('/account/mood/stats', authenticateToken, async (req, res) => {
-    const userId = req.user.id;
+    const user_id = req.user.id;
 
     try{
-        console.log('User token', req.user)
-        const stats = await getMoodCounts(userId)
-        res.status(200).json({data: stats})
+        const response = await getMoodCounts(user_id)
+        res.status(200).json({data: response})
     }catch(error){
-        console.error('Failed to fetch mood:', error)
         res.status(500).json({error: 'Could not get mood stats'})
     }
 })
