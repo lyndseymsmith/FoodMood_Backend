@@ -14,8 +14,8 @@ router.post('/register', async (req, res) => {
 
     try{
         const hashed = await bcrypt.hash(password, 10)
-        const user = await createUser(username, hashed)
-        res.status(201).json({message: 'User registered', user})
+        const response = await createUser(username, hashed)
+        res.status(201).json({message: 'User registered', response})
     }catch(error){
         if(error.code === '23505'){
             return res.status(409).json({error: 'Username already taken'})
@@ -52,8 +52,8 @@ router.get('/account', authenticateToken, async (req, res) => {
     const { id } = req.user;
 
     try{
-        const savedItems = await getSavedByUserId(id)
-        res.status(200).json({saved: savedItems})
+        const response = await getSavedByUserId(id)
+        res.status(200).json({saved: response})
     }catch(error){
         res.status(500).json({error: 'Failed to fetch saved items'})
     }
