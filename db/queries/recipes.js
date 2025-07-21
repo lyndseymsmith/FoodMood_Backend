@@ -1,14 +1,14 @@
 
 import client from '../client.js';
 
-export async function createRecipes(title, mood_id, description, ingredients, instructions) {
+export async function createRecipes(title, mood_id, description, ingredients, instructions, image_url) {
   const result = await client.query(
     `
-    INSERT INTO recipes (title, mood_id, description, ingredients, instructions)
-    VALUES ($1, $2, $3, $4, $5)
+    INSERT INTO recipes (title, mood_id, description, ingredients, instructions, image_url)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *;
     `,
-    [title, mood_id, description, ingredients, instructions]
+    [title, mood_id, description, ingredients, instructions, image_url]
   );
 
   return result.rows[0];

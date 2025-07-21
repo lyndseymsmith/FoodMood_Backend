@@ -29,7 +29,8 @@ CREATE TABLE recipes (
   mood_id INTEGER REFERENCES moods(id) ON DELETE SET NULL,
   description TEXT,
   ingredients TEXT[] NOT NULL,
-  instructions TEXT
+  instructions TEXT,
+  image_url TEXT NOT NULL
 );
 
 CREATE TABLE user_history (
